@@ -23,15 +23,16 @@ modules:
     install:
       packages:
         - repo: copr:copr.fedorainfracloud.org:solopasha:hyprland
-            packages:
-              - hyprland
-              - hyprpaper
-              - hyprpicker
-              - hypridle
-              - hyprlock
-              - hyprpolkitagent
-              - hyprshot
-              - uwsm
+          packages:
+            - hyprland
+            - hyprpaper
+            - hyprpicker
+            - hypridle
+            - hyprlock
+            - hyprpolkitagent
+            - hyprshot
+            - uwsm
+            - xdg-desktop-portal-hyprland
         - brave-browser
         - btop
         - direnv
