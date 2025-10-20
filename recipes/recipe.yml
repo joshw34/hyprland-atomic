@@ -10,59 +10,57 @@ modules:
         destination: /
   - type: rpm-ostree 
     repos:
-      files:
-        - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-      nonfree: rpmfusion
-      copr:
-        - dejan/lazygit
-        - solopasha/hyprland
+      - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+      - https://copr.fedorainfracloud.org/coprs/dejan/lazygit/repo/fedora-%OS_VERSION%/dejan-lazygit-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%OS_VERSION%/solopasha-hyprland-fedora-%OS_VERSION%.repo
+    keys:
+      - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     install:
-      packages:
-        - hyprland
-        - hyprpaper
-        - hyprpicker
-        - hypridle
-        - hyprlock
-        - hyprpolkitagent
-        - hyprshot
-        - uwsm
-        - xdg-desktop-portal-hyprland
-        - brave-browser
-        - btop
-        - direnv
-        - discord
-        - evince
-        - eza
-        - firefox
-        - foot
-        - gnome-text-editor
-        - kitty
-        - libva-intel-media-driver
-        - lazygit
-        - loupe
-        - man-pages
-        - mc
-        - neovim
-        - nodejs-npm
-        - podman
-        - podman-compose
-        - podman-tui
-        - qalculate-gtk
-        - ripgrep
-        - speedtest-cli
-        - SwayNotificationCenter
-        - thunderbird
-        - tmux
-        - vulkan-tools
-        - waybar
-        - wlogout
-        - tealdeer
-        - zsh
-        - zsh-autosuggestions
-        - zsh-syntax-highlighting
+      - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
+      - hyprland
+      - hyprpaper
+      - hyprpicker
+      - hypridle
+      - hyprlock
+      - hyprpolkitagent
+      - hyprshot
+      - uwsm
+      - xdg-desktop-portal-hyprland
+      - brave-browser
+      - btop
+      - direnv
+      - discord
+      - evince
+      - eza
+      - firefox
+      - foot
+      - gnome-text-editor
+      - kitty
+      - libva-intel-media-driver
+      - lazygit
+      - loupe
+      - man-pages
+      - mc
+      - neovim
+      - nodejs-npm
+      - podman
+      - podman-compose
+      - podman-tui
+      - qalculate-gtk
+      - ripgrep
+      - speedtest-cli
+      - SwayNotificationCenter
+      - thunderbird
+      - tmux
+      - vulkan-tools
+      - waybar
+      - wlogout
+      - tealdeer
+      - zsh
+      - zsh-autosuggestions
+      - zsh-syntax-highlighting
     remove:
-      packages:
-        - google-noto-sans-balinese-fonts
+      - google-noto-sans-balinese-fonts
   - type: default-flatpaks
     system:
       install:
