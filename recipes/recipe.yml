@@ -22,7 +22,7 @@ modules:
         - solopasha/hyprland
     install:
       packages:
-        - repo: copr:copr.fedorainfracloud.org:custom-user:custom-repo
+        - repo: copr:copr.fedorainfracloud.org:solopasha:hyprland
             packages:
               - hyprland
               - hyprpaper
