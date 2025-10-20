@@ -59,14 +59,22 @@ modules:
     remove:
       - google-noto-sans-balinese-fonts
   - type: default-flatpaks
-    system:
-      install:
-        - com.bitwarden.desktop
-        - com.discordapp.Discord
-        - com.github.tchx84.Flatseal
-        - com.github.iwalton3.jellyfin-media-player
-        - com.moonlight_stream.Moonlight
-        - com.slack.Slack
-        - com.stremio.Stremio
-        - com.visualstudio.code
+    configurations:
+      - notify: false
+        scope: system
+        install:
+          - org.mozilla.firefox
+          - com.github.tchx84.Flatseal
+          - io.github.flattool.Warehouse
+          - io.missioncenter.MissionCenter
+          - com.github.rafostar.Clapper
+          - org.gnome.Loupe
+            - com.bitwarden.desktop
+            - com.discordapp.Discord
+            - com.github.tchx84.Flatseal
+            - com.github.iwalton3.jellyfin-media-player
+            - com.moonlight_stream.Moonlight
+            - com.slack.Slack
+            - com.stremio.Stremio
+            - com.visualstudio.code
   - type: signing
