@@ -13,20 +13,30 @@ modules:
       - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
       - https://copr.fedorainfracloud.org/coprs/dejan/lazygit/repo/fedora-%OS_VERSION%/dejan-lazygit-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%OS_VERSION%/solopasha-hyprland-fedora-%OS_VERSION%.repo
+      - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
+      - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
+      - vscode.repo
     keys:
       - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+      - https://packages.microsoft.com/keys/microsoft.asc
     install:
+      # Hyprland Packages
+      - greetd
+      - hypridle
       - hyprland
+      - hyprlock
       - hyprpaper
       - hyprpicker
-      - hypridle
-      - hyprlock
       - hyprpolkitagent
       - hyprshot
+      - rofi-wayland
+      - tuigreet
       - uwsm
       - xdg-desktop-portal-hyprland
+      # Desktop packages
       - brave-browser
       - btop
+      - code
       - direnv
       - evince
       - firefox
@@ -53,6 +63,7 @@ modules:
       - waybar
       - wlogout
       - tealdeer
+      - util-linux-user
       - zsh
       - zsh-autosuggestions
       - zsh-syntax-highlighting
@@ -70,5 +81,12 @@ modules:
           - com.moonlight_stream.Moonlight
           - com.slack.Slack
           - com.stremio.Stremio
-          - com.visualstudio.code
+  - type: files
+    files:
+      - source: greetd
+        destination: /etc/greetd
+  - type: systemd
+    system:
+      enabled:
+        - greetd.service
   - type: signing
