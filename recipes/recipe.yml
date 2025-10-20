@@ -1,17 +1,13 @@
 ---
 name: hyprland-atomic
-
 description: Fedora Atomic with Hyprland
-
 base-image: ghcr.io/ublue-os/base-main
 image-version: 42
-
 modules:
   - type: files
     files:
       - source: system
         destination: /
-
   - type: rpm-ostree 
     repos:
       files:
@@ -22,17 +18,15 @@ modules:
         - solopasha/hyprland
     install:
       packages:
-        - repo: copr:copr.fedorainfracloud.org:solopasha:hyprland
-          packages:
-            - hyprland
-            - hyprpaper
-            - hyprpicker
-            - hypridle
-            - hyprlock
-            - hyprpolkitagent
-            - hyprshot
-            - uwsm
-            - xdg-desktop-portal-hyprland
+        - hyprland
+        - hyprpaper
+        - hyprpicker
+        - hypridle
+        - hyprlock
+        - hyprpolkitagent
+        - hyprshot
+        - uwsm
+        - xdg-desktop-portal-hyprland
         - brave-browser
         - btop
         - direnv
@@ -65,27 +59,18 @@ modules:
         - tealdeer
         - zsh
         - zsh-autosuggestions
-        - zsh-syntax-higlighting
-
+        - zsh-syntax-highlighting
     remove:
       packages:
-
+        - google-noto-sans-balinese-fonts
   - type: default-flatpaks
-    configurations:
-      - scope: user
-        repo:
-          title: Flathub (user)
-      - notify: true
-        scope: system
-        repo:
-          title: Flathub (system)
-        install:
-          - com.bitwarden.desktop
-          - com.github.tchx84.Flatseal
-          - com.github.iwalton3.jellyfin-media-player
-          - com.moonlight_stream.Moonlight
-          - com.slack.Slack
-          - com.stremio.Stremio
-          - com.visualstudio.code
-
+    system:
+      install:
+        - com.bitwarden.desktop
+        - com.github.tchx84.Flatseal
+        - com.github.iwalton3.jellyfin-media-player
+        - com.moonlight_stream.Moonlight
+        - com.slack.Slack
+        - com.stremio.Stremio
+        - com.visualstudio.code
   - type: signing
