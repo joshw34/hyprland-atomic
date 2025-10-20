@@ -16,7 +16,6 @@ modules:
     keys:
       - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     install:
-      - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
       - hyprland
       - hyprpaper
       - hyprpicker
@@ -29,9 +28,7 @@ modules:
       - brave-browser
       - btop
       - direnv
-      - discord
       - evince
-      - eza
       - firefox
       - foot
       - gnome-text-editor
@@ -65,6 +62,7 @@ modules:
     system:
       install:
         - com.bitwarden.desktop
+        - com.discordapp.Discord
         - com.github.tchx84.Flatseal
         - com.github.iwalton3.jellyfin-media-player
         - com.moonlight_stream.Moonlight
