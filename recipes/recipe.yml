@@ -16,6 +16,7 @@ modules:
       - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
       - https://copr.fedorainfracloud.org/coprs/dejan/lazygit/repo/fedora-%OS_VERSION%/dejan-lazygit-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%OS_VERSION%/solopasha-hyprland-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/repo/fedora-%OS_VERSION%/tofik-nwg-shell-fedora-%OS_VERSION%.repo
       - vscode.repo
     keys:
       - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
@@ -55,7 +56,11 @@ modules:
       - man-pages
       - mc
       - neovim
+      - NetworkManager
+      - NetworkManager-tui
       - nodejs-npm
+      - nwg-displays
+      - nwg-look
       - podman
       - podman-tui
       - qalculate-gtk
