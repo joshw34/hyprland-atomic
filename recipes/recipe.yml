@@ -4,6 +4,11 @@ description: Fedora Atomic with Hyprland
 base-image: ghcr.io/ublue-os/base-main
 image-version: 42
 modules:
+  - type: dnf
+    install:
+      packages:
+        - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+        - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
   - type: files
     files:
       - source: system
@@ -13,8 +18,6 @@ modules:
       - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
       - https://copr.fedorainfracloud.org/coprs/dejan/lazygit/repo/fedora-%OS_VERSION%/dejan-lazygit-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%OS_VERSION%/solopasha-hyprland-fedora-%OS_VERSION%.repo
-      - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
-      - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
       - vscode.repo
     keys:
       - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
@@ -32,16 +35,21 @@ modules:
       - rofi-wayland
       - tuigreet
       - uwsm
+      - waybar
+      - wlogout
       - xdg-desktop-portal-hyprland
       # Desktop packages
       - brave-browser
       - btop
       - code
+      - docker-compose
       - direnv
+      - discord
       - evince
       - firefox
       - foot
       - gnome-text-editor
+      - gvfs
       - kitty
       - libva-intel-media-driver
       - lazygit
@@ -51,18 +59,22 @@ modules:
       - neovim
       - nodejs-npm
       - podman
-      - podman-compose
       - podman-tui
       - qalculate-gtk
       - ripgrep
       - speedtest-cli
       - SwayNotificationCenter
       - thunderbird
+      - thunar
+      - thunar-volman
+      - thunar-archive-plugin
+      - thunar-vcs-plugin
+      - thunar-media-tags-plugin
       - tmux
+      - tumbler
       - vulkan-tools
-      - waybar
-      - wlogout
       - tealdeer
+      - xfconf
       - zsh
       - zsh-autosuggestions
       - zsh-syntax-highlighting
@@ -74,20 +86,14 @@ modules:
         scope: system
         install:
           - com.bitwarden.desktop
-          - com.discordapp.Discord
           - com.github.tchx84.Flatseal
           - com.github.iwalton3.jellyfin-media-player
           - com.moonlight_stream.Moonlight
           - com.slack.Slack
           - com.stremio.Stremio
-  - type: files
-    files:
-      - source: greetd
-        destination: /etc/greetd
-      - source: greeter.conf
-      - destination: /usr/lib/sysusers.d/greeter.conf
   - type: systemd
     system:
       enabled:
         - greetd.service
+        - docker.service
   - type: signing
