@@ -2,6 +2,7 @@
 name: hyprland-atomic
 description: Fedora Atomic with Hyprland
 base-image: ghcr.io/blue-build/base-images/fedora-cosmic-nvidia
+image-version: latest
 modules:
   - type: dnf
     repos:
@@ -72,6 +73,7 @@ modules:
       enabled:
         - docker.service
   - type: signing
+
 
 
 
