@@ -4,6 +4,10 @@ description: Fedora Atomic with Hyprland
 base-image: ghcr.io/ublue-os/base-main
 image-version: 42
 modules:
+  - type: akmods
+    base: bazzite
+    install: nvidia-open
+    nvidia-driver: nvidia-open
   - type: dnf
     repos:
       nonfree: rpmfusion
@@ -15,39 +19,22 @@ modules:
     repos:
       - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
       - https://copr.fedorainfracloud.org/coprs/dejan/lazygit/repo/fedora-%OS_VERSION%/dejan-lazygit-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%OS_VERSION%/solopasha-hyprland-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/repo/fedora-%OS_VERSION%/tofik-nwg-shell-fedora-%OS_VERSION%.repo
       - vscode.repo
     keys:
       - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
       - https://packages.microsoft.com/keys/microsoft.asc
     install:
-      # Hyprland Packages
-      - greetd
-      - hypridle
-      - hyprland
-      - hyprlock
-      - hyprpaper
-      - hyprpicker
-      - hyprpolkitagent
-      - hyprshot
-      - rofi-wayland
-      - tuigreet
-      - uwsm
-      - waybar
-      - wlogout
-      - xdg-desktop-portal-hyprland
       # Desktop packages
       - brave-browser
       - btop
       - code
       - docker-compose
-      - direnv
       - discord
+      - distrobox
       - evince
       - firefox
       - foot
-      - gnome-text-editor
       - gvfs
       - kitty
       - libva-intel-media-driver
@@ -56,28 +43,17 @@ modules:
       - man-pages
       - mc
       - neovim
-      - NetworkManager
-      - NetworkManager-tui
       - nodejs-npm
-      - nwg-displays
       - nwg-look
       - podman
       - podman-tui
       - qalculate-gtk
       - ripgrep
       - speedtest-cli
-      - SwayNotificationCenter
       - thunderbird
-      - thunar
-      - thunar-volman
-      - thunar-archive-plugin
-      - thunar-vcs-plugin
-      - thunar-media-tags-plugin
       - tmux
-      - tumbler
       - vulkan-tools
       - tealdeer
-      - xfconf
       - zsh
       - zsh-autosuggestions
       - zsh-syntax-highlighting
@@ -97,6 +73,10 @@ modules:
   - type: systemd
     system:
       enabled:
-        - greetd.service
+        - cosmic-greeter.service
         - docker.service
   - type: signing
+
+
+
+
