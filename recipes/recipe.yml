@@ -6,7 +6,8 @@ image-version: 42
 modules:
   - type: akmods
     base: bazzite
-    install: nvidia-open
+    install:
+      - nvidia-open
     nvidia-driver: nvidia-open
   - type: dnf
     repos:
@@ -35,12 +36,15 @@ modules:
       - evince
       - firefox
       - foot
+      - gamescope
+      - gamemode
       - gvfs
       - kitty
       - libva-intel-media-driver
       - lazygit
       - loupe
       - man-pages
+      - mangohud
       - mc
       - neovim
       - nodejs-npm
@@ -76,6 +80,8 @@ modules:
         - cosmic-greeter.service
         - docker.service
   - type: signing
+
+
 
 
 
