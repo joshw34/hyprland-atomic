@@ -49,6 +49,7 @@ modules:
       - docker-compose-switch
       - discord
       - firefox
+      - firewall-config
       - foot
       - fzf
       - gcc
